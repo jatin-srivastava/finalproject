@@ -22,7 +22,7 @@ function UpcomingEvents() {
 
     return (
         <>
-            <h1>hello this is camp detail</h1>
+            <h1 className="text-center m-2">Camp detail</h1>
             <div className="row">
                 {profile.map((uf, index) => (
                     <div className="col-4" key={index}>

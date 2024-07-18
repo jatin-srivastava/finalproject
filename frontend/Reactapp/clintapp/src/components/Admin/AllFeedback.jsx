@@ -7,7 +7,19 @@ import { useNavigate } from 'react-router-dom'
 
 function AllFeedback() {
     const [userfeedback, setUserFeedback] = useState([])
-    const navigate = useNavigate()
+    const navigate=useNavigate()
+    
+    const [acname,setAcName]=useState("")
+    useEffect(()=>{
+        const token_data=localStorage.getItem("Token_key")
+        console.log(`token data is  ${token_data}`);
+        if (!token_data) // if no value in token data  it means user has not login
+        {
+            navigate('/admin_login')
+        }
+        setAcName(token_data)
+
+    })
 
     const URL = "http://localhost:4000/admin/allfeedback"
 

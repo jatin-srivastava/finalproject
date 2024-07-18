@@ -1,0 +1,45 @@
+/* showstory.css */
+
+.container1 {
+   margin-top: 20px;
+   }
+.bg{
+   background-image: linear-gradient(to right,#f4f5c8,rgb(241, 215, 184),#eff0b6);
+
+}
+
+.card11 {
+   border: 1px solid #f10808;
+   border-radius: 2px;
+   padding: 15px;
+   background-color: #f8dddd;
+}
+
+.box-title1 {
+   background-color: #eee;
+   padding: 10px;
+   border-bottom: 1px solid #e40d0d;
+}
+
+.box-text1 {
+   padding: 10px;
+}
+
+   .card-title1 {
+      margin-bottom: 5px;
+      font-size: 30px;
+      color: red;
+      /* background-color: rgb(245, 207, 207); */
+      border-radius: 2px;
+      
+}
+.story{
+   font-size: 50px;
+   
+}
+
+.card-text1 {
+   margin-top: 5px;
+   font-size: 20px;
+   color: rgb(153, 1, 1);
+}

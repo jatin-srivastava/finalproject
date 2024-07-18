@@ -24,9 +24,9 @@ function DonorCategory(props) {
 
     return (
         <>
-            <h1>This is donor category</h1>
-
-            <table style={{padding:"5px" , border: "1px solid black" }}>
+           
+            <div className=" container mt-3" >
+                <table style={{ border: "1px solid black", width: "100%" }}>
                 <thead>
                     <tr>
                         <th style={{padding:"5px" , border: "1px solid black" }}>Name</th>
@@ -46,6 +46,7 @@ function DonorCategory(props) {
                     ))}
                 </tbody>
             </table>
+            </div>
         </>
     );
 }

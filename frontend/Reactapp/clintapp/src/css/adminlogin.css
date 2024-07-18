@@ -1,7 +1,42 @@
 .mainadmin{
-	background-image: url("../images/b14.jpg");
+	background-image: url("../images/b12.jpg");
 	background-size: cover;
+	padding: 20px;
 }
 .back{
 	background-color:rgba(255, 255, 255, 0.986);
 }
+
+/* adminlogin.css */
+
+/* Add responsive styles */
+@media (max-width: 768px) {
+	.container {
+	  padding: 0 20px; /* Adjust padding for smaller screens */
+	}
+  }
+  
+  /* Adjust form width and margins */
+  .form-horizontal {
+	max-width: 400px; /* Limit form width */
+	margin: 0 auto; /* Center the form horizontally */
+  }
+  
+  /* Adjust label font size for smaller screens */
+  .form-label {
+	font-size: 16px;
+  }
+  
+  /* Adjust button width for smaller screens */
+  .btn-block {
+	width: 100%;
+  }
+  
+  /* Adjust spacing between elements */
+
+  
+  /* Center text in the footer */
+  .footer-text {
+	text-align: center;
+  }
+  

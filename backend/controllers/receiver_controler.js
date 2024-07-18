@@ -1,8 +1,33 @@
 import receiverModel from "../models/receiver.models.js";
+import FeedbackModel from '../models/feedback.models.js'
+import donorModel from '../models/donor.models.js'
+import messageModel from "../models/message.models.js";
 
 export const receiver = (request,response)=>{
     response.send("this is receiver page ")
 }
+
+
+
+export const addFeedback = async (request, response) => {
+    const feedbackObject = request.body
+    const { name, email, remark, rating } = feedbackObject
+    try {
+        const FeedbackDoc = new FeedbackModel({
+            name: name, email: email,
+            remark: remark, rating: rating
+        })
+        await FeedbackDoc.save()
+        response.send("thankyou for your feedback")
+    }
+    catch (err) {
+        console.log('err' + err);
+    }
+
+    // console.log(feedbackObject);
+}
+
+
 
 export const login = async (request,response) =>{
     try{
@@ -88,9 +113,51 @@ export const receiveredit = async (request,response)=>{
             })
             await receivermsgDoc.save()
             response.send("your msg is send")
-            alert("your msg is send")
+            
         }
         catch (err) {
             console.log('err' + err);
         }
     }
+
+
+    
+export const receiverinbox = async (request,response) => {
+    try{
+        
+        const senderId = request.query.senderId
+       
+        console.log("in receiver id ", senderId);
+        const inbox_data = await messageModel.find({receiverId:senderId})
+        console.log("id donor inbox",inbox_data);
+        if (inbox_data!=null)
+        response.send(inbox_data)
+
+    }
+    catch(err)
+    {
+        console.log(err);
+    }
+}
+
+    
+export const searchDonor = async (request, response) => {
+    let donordata = {};
+    try {
+        const { bloodGroup, city }=request.query;
+        console.log("in server", bloodGroup, city);
+        if 
+        (city) {  
+            donordata = await donorModel.find({ city: city })
+        } else if (bloodGroup) {
+            donordata = await donorModel.find({ bloodGroup: bloodGroup })
+        } else {
+            donordata = await donorModel.find().limit(10);
+        }
+        response.send({ message: "success", donor_data: donordata });
+    } catch (err) {
+        console.log(err);
+        
+    }
+};
+

@@ -12,14 +12,10 @@ function DonorCompose() {
     receiverId: "", 
     subject: "",
     message: "",
-    date: new Date().toISOString()})
+    date: new Date().toISOString()
+  })
   
    
-
-
-
-
-    
     const handleChange = (e)=>{
         setMsg({...msg,[e.target.name]:e.target.value});
         
@@ -29,7 +25,7 @@ function DonorCompose() {
         try{
           const response = await axios.post(URL,msg)
           console.log(response.data);
-          setMsg({senderId:"token_data",receiverId:"",subject:"",message:""})
+          setMsg({senderId:token_data,receiverId:"",subject:"",message:""})
 
         }
         catch(err){

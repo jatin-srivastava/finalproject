@@ -12,7 +12,7 @@ const Navbar=()=>{
     <div className="collapse navbar-collapse " id="navbarScroll">
       <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style={{bsscrollheight: "100px;"}}>
         <li className="nav-item">
-          <NavLink className="nav-link active" aria-current="page" to="/HomePage"> <i className="fas fa-home"></i>Home</NavLink>
+          <NavLink className="nav-link active" aria-current="page" to="/HomePage"> <i className="fas fa-home"></i></NavLink>
         </li>
 
                 
@@ -22,11 +22,9 @@ const Navbar=()=>{
         <li className="nav-item">
           <NavLink className="nav-link" to="/contact">Contact Us</NavLink>
         </li>
+       
         <li className="nav-item">
-          <NavLink className="nav-link" to="/feedback">Feedback</NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/viewDonorHome">View</NavLink>
+          <NavLink className="nav-link" to="/viewDonorHome">Search Blood</NavLink>
         </li>
         <li className="nav-item dropdown">
           <NavLink className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Registration</NavLink>
@@ -46,7 +44,10 @@ const Navbar=()=>{
           </ul>
         </li>
         
-       
+        <li className="nav-item">
+        <NavLink className="nav-link" to="/showStory">Show story</NavLink>
+        </li>
+        
         <li className="nav-item">
         <NavLink className="nav-link" to="/upcoming_event">Camp Detail</NavLink>
         </li>
@@ -61,10 +62,7 @@ const Navbar=()=>{
           </ul>
         </li>
       </ul>
-      <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      
     </div>
   </div>
 </nav>

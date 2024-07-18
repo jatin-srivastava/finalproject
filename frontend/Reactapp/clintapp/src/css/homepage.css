@@ -1,1 +1,22 @@
-@keyframes 
+.container1{
+    font-size: 18px;
+}
+.text{
+    height: 95vh;
+    width: 100vw;
+}
+.text7{
+    font-size: 5rem;
+    font-weight: 650;
+ 
+    margin: 20px 0px 20px 80px;
+}
+.p1{
+    margin: 20px 0px 20px 80px;
+    font-size: 2rem;
+    text-decoration: none;
+    color: rgb(39, 21, 21);
+}
+.color{
+    background-color: rgb(250, 149, 149);
+}

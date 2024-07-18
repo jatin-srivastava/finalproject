@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import axios from 'axios';
 import "../../css/campdetail.css";
 import AdminHeader from "./AdminHeader";
 import Footer from "../Footer";
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 
 
@@ -10,6 +13,20 @@ function CampDetail() {
 
 
     const URL = "http://localhost:4000/admin/campDetail";
+    
+    const [acname,setAcName]=useState("")
+    const navigate=useNavigate()
+    useEffect(()=>{
+        const token_data=localStorage.getItem("Token_key")
+        console.log(`token data is  ${token_data}`);
+        if (!token_data) // if no value in token data  it means user has not login
+        {
+            navigate('/admin_login')
+        }
+        setAcName(token_data)
+
+    })
+
 
     const [user, setUser] = useState({
         event_name: '', event_venue: '', event_description: '', event_date: ''
@@ -26,6 +43,10 @@ function CampDetail() {
             setUser({ 
                 event_name: '', event_venue: '', event_description: '', event_date: ''
              })
+             Swal.fire({
+                title: "Event shared",
+                icon: "success"
+              });
         }
         catch (err) {
             console.log("err" + err);
@@ -38,7 +59,7 @@ function CampDetail() {
 
             <section class="vh-100 bg-image"
                 style={{ "backgroundImage": "url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp')" }}>
-                <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+                <div class="mask d-flex align-items-center h-100 gradient-custom-3 ">
                     <div class="container h-100">
                         <div class="row d-flex justify-content-center align-items-center h-100">
                             <div class="col-12 col-md-9 col-lg-7 col-xl-6">

@@ -4,8 +4,12 @@ import ReceiverHeader from "./ReceiverHeader";
 import { useState } from "react";
 import axios from 'axios'
 import "../../css/adminlogin.css"
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
 
 function ReceiverComose() {
+  const MySwal = withReactContent(Swal)
   const URL = "http://localhost:4000/receiver/receiverCompose"
   const token_data = localStorage.getItem("Token_key")
   const [msg, setMsg] = useState({
@@ -21,17 +25,21 @@ function ReceiverComose() {
 
   }
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      const response = await axios.post(URL, msg)
+      const response = await axios.post(URL, msg);
       console.log(response.data);
-      setMsg({ receiverId: "token_data", senderId: "", subject: "", message: "" })
-
+      setMsg({ senderId: token_data, receiverId: "", subject: "", message: "", date: new Date().toISOString() });
+      Swal.fire({
+        title: "msg is submited",
+        text: response.data,
+        icon: "success"
+      });
+    } catch (err) {
+      console.log('err', err);
     }
-    catch (err) {
-      console.log('err' + err);
-    }
-  }
+  };
+  
   return (
     <>
       <ReceiverHeader />

@@ -27,21 +27,25 @@ function DonorHeader() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item active">
-                                <NavLink className="nav-link" to="#">Home <span className="sr-only">(current)</span></NavLink>
+                                <NavLink className="nav-link" to="/donor_home">Home <span className="sr-only">(current)</span></NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="#">About</NavLink>
+                                <NavLink className="nav-link" to="/appointment_view">Appointment view</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="#">Contact</NavLink>
+                                <NavLink className="nav-link" to="/share_story">Story</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/donor_history">Donation History</NavLink>
+                            </li>
+                           
                             <li className="nav-item dropdown">
                                 <NavLink className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Message
                                 </NavLink>
                                 <ul className="dropdown-menu">
                                     <li><NavLink className="dropdown-item" to="/donorCompose">Compose</NavLink></li>
-                                    <li><NavLink className="dropdown-item" to="#">Inbox</NavLink></li>
+                                    <li><NavLink className="dropdown-item" to="/donor-inbox">Inbox</NavLink></li>
                                 </ul>
                             </li>
                         </ul>

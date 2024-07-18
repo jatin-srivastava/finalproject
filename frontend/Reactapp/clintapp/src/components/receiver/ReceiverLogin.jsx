@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import Navbar from "../Navbar"
 import Footer from '../Footer';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 
 function ReceiverLogin() {
@@ -17,10 +19,14 @@ function ReceiverLogin() {
             const response = await axios.post(URL, user)
             console.log(response.data);
             setUser({ id: "", pass: "" })
+            
             if (response.data.code === 200) {
                 navigate("/receiver_home")
                 localStorage.setItem("Token_key", response.data.token)
-
+                Swal.fire({
+                    title: "login successful",
+                    icon: "success"
+                  });
             }
             else if (response.data.code === 404) {
                 alert("password does not match")
@@ -79,13 +85,13 @@ function ReceiverLogin() {
                                         <div className="form-outline mb-4">
                                             <input type="text" onChange={handleChange} value={user.id} name='id' id="form2Example11" className="form-control"
                                                 placeholder="Phone number or email address" />
-                                            <label className="form-label" htmlFor="form2Example11">Username</label>
+                                            <label className="form-label" htmlFor="form2Example11"><i class="fas fa-user"></i> Username</label>
                                         </div>
 
                                         <div className="form-outline mb-4">
                                             <input type="password" onChange={handleChange} name='pass' value={user.password} id="form2Example22" className="form-control"
                                                 placeholder="Enter your Password" />
-                                            <label className="form-label" htmlFor="form2Example22">Password</label>
+                                            <label className="form-label" htmlFor="form2Example22"><i class="fas fa-lock"></i> Password</label>
                                         </div>
 
 
@@ -95,7 +101,7 @@ function ReceiverLogin() {
                                             Login
                                         </button>
 
-                                        <div className="text-center">
+                                        {/* <div className="text-center">
                                             <p>or sign up with:</p>
                                             <button type="button" className="btn btn-link btn-floating mx-1">
                                                 <i className="fab fa-facebook-f"></i>
@@ -112,7 +118,7 @@ function ReceiverLogin() {
                                             <button type="button" className="btn btn-link btn-floating mx-1">
                                                 <i className="fab fa-github"></i>
                                             </button>
-                                        </div>
+                                        </div> */}
                                     </form>
                                 </div>
                             </div>

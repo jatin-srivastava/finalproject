@@ -1,0 +1,47 @@
+.appointment-view-container {
+    padding: 20px;
+}
+
+.page-title {
+    text-align: center;
+    color: #333;
+}
+
+.appointment-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.appointment-card {
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-message,
+.card-venue {
+    margin-bottom: 10px;
+}
+
+.register-link {
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}

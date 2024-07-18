@@ -1,0 +1,42 @@
+.li1 {
+    list-style: none;
+    margin-bottom:10px;
+  }
+   
+     
+      
+  
+.jumbotron {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 2px solid white;
+}
+
+
+.card-title111 {
+    font-size: 50px;
+    margin-bottom: 5px;
+}
+.card-title {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.container67.details {
+    list-style-type: none;
+}
+
+.container67.details li {
+    margin-bottom: 10px;
+}
+
+.img {
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .jumbotron {
+        padding: 10px;
+    }
+}

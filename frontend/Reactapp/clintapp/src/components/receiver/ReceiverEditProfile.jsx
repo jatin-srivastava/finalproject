@@ -68,12 +68,12 @@ function UserEditProfile() {
         
         <h5>hello {acname}</h5>
         <form onSubmit={handleForm}>
-        <div className="card" style={{ margin: "12%", backgroundColor: "cyan", padding: "2%", width: "50%" }}>
+        <div className="card" style={{ margin: "12%", padding: "2%", width: "50%" }}>
        
             <div className="card-body">
                 <h5 className='card-title'>Your Name:<input type="text" onChange={handleChange}  name="name" value={editProfile.name}/></h5>
-                <h5 className='card-title'>Your Email:<input type="text" onChange={handleChange} name="email" value={editProfile.email} /></h5>
-                <h5 className='card-title'>Your Phone: <input type="tel" onChange={handleChange} name="phone" value={editProfile.phone} /></h5>
+                <h5 className='card-title'>Your Email:<input type="email" onChange={handleChange} name="email" value={editProfile.email} /></h5>
+                <h5 className='card-title'>Your Phone: <input type="phone" onChange={handleChange} name="phone" value={editProfile.phone} /></h5>
             
             </div>
             <button className="btn btn_danger bg-warning" style={{width:"150px" , marginLeft:"auto" , marginRight:"auto"}}>Edit Profile</button>

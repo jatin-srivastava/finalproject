@@ -1,0 +1,6 @@
+/* Navbar.css */
+.nav-link:hover {
+    color: #ff1e00; /* Change the color on hover to blue */
+    text-decoration: underline; /* Add underline on hover */
+  }
+  

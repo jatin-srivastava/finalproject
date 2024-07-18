@@ -1,8 +1,8 @@
-import FeedbackModel from "../models/feedback.models.js";
 import contactModel from "../models/contact.models.js";
 import receiverModel from "../models/receiver.models.js";
 import donorModel from '../models/donor.models.js'
 import campModel from "../models/campDetail.model.js"
+import storyModel from '../models/story.model.js'
 
 
 
@@ -15,30 +15,9 @@ export const home = (request, response) => {
 }
 
 
-
-
-export const addFeedback = async (request, response) => {
-    const feedbackObject = request.body
-    const { name, email, remark, rating } = feedbackObject
-    try {
-        const FeedbackDoc = new FeedbackModel({
-            name: name, email: email,
-            remark: remark, rating: rating
-        })
-        await FeedbackDoc.save()
-        response.send("thankyou for your feedback")
-    }
-    catch (err) {
-        console.log('err' + err);
-    }
-
-    // console.log(feedbackObject);
-}
-
-
 export const Donor = async (request, response) => {
     const donorObject = request.body
-    const { id, password, name, email, phone, gender, age, bgr, city } = donorObject
+    const { id, password, name, email, phone, gender, age, bloodGroup, city } = donorObject
     try {
         const donorDoc = new donorModel({
             id: id,
@@ -48,7 +27,7 @@ export const Donor = async (request, response) => {
             phone: phone,
             gender: gender,
             age: age,
-            bgr: bgr,
+            bloodGroup: bloodGroup,
             city: city
         })
         await donorDoc.save()
@@ -115,6 +94,7 @@ export const upcoming_event = async (request, response)=>{
 }
 
 
+
 // export const donordetail = async (request,response)=>{
 //     try
 //     {
@@ -133,11 +113,11 @@ export const upcoming_event = async (request, response)=>{
 export const searchdonor = async (request,response)=>{
     let donorData = {} 
     try{
-        const {bgr , city} = request.query
-        console.log("in server" + bgr ,city);
-        if (bgr){
-            const regex = new RegExp(bgr,'i');
-            donorData = await donorModel.find({bgr:{ $regex: regex}})
+        const {bloodGroup , city} = request.query
+        console.log("in server" + bloodGroup ,city);
+        if (bloodGroup){
+            const regex = new RegExp(bloodGroup,'i');
+            donorData = await donorModel.find({bloodGroup:{ $regex: regex}})
         }
         else if (city)
         {
@@ -151,6 +131,19 @@ export const searchdonor = async (request,response)=>{
     }
     catch(err){
         console.log(err);
+    }
+}
+
+export const showStory = async (request, response)=>{
+    try{
+        const eventData = await storyModel.find()
+        if (eventData != null)
+        response.send(eventData)
+    else 
+    response.send("no story yet")
+    }
+    catch (err){
+        console.log("err"+ err);
     }
 }
   
